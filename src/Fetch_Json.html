@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function myFunction(){
+      fetch('resoruces/example.json')
+        .then(response => response.json())
+        .then(data => {
+          const outputDiv = document.getElementById('output');
+          outputDiv.innerHTML = JSON.stringify(data);
+        })
+        .catch(error => console.error(error));
+        }
+     function MyFunction2(name1){
+     const idToFind = name1; // replace with the ID you want to find
+      fetch('resoruces/example.json')
+        .then(response => response.json())
+        .then(data => {
+          const record = data.find(item => item.id === idToFind);
+          const outputDiv = document.getElementById('output');
+          outputDiv.innerHTML = JSON.stringify(record);
+        })
+        .catch(error => console.error(error));
+     }
+    </script>
+<body>
+
+<button onclick="myFunction()">xd</button>
+<button onclick="MyFunction2(10)">xd2</button>
+<div id="output"></div>
+</body>
+</html>
